@@ -31,6 +31,7 @@ mod NameRegistry {
         StoredName: StoredName,
     }
     //ANCHOR_END: event
+
     //ANCHOR: storedname
     #[derive(Drop, starknet::Event)]
     struct StoredName {
