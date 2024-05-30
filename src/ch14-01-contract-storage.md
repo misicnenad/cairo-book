@@ -10,7 +10,7 @@ Storage variables in Starknet contracts are stored in a special struct called `S
 
 The `Storage` struct is a [struct][structs chapter] like any other, except that it **must** be annotated with the `#[storage]` attribute. This annotation tells the compiler to generate the required code to interact with the blockchain state, and allows you to read and write data from and to storage. Moreover, this allows you to define storage mappings using the dedicated `LegacyMap` type.
 
-Variables declared in the `Storage` struct are not stored contiguously but in different locations in the contract's storage. The storage address of a particular variable is determined by the variable's name, and the eventual keys of the variable if it is a mapping.
+Variables declared in the `Storage` struct are not stored contiguously but in different locations in the contract's storage. The storage address of a particular variable is determined by the variable's name, and if it is a mapping, by the eventual keys of the variable.
 
 [structs chapter]: ./ch05-00-using-structs-to-structure-related-data.md
 
