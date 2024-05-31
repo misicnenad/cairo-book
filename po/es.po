@@ -12490,7 +12490,7 @@ msgid ""
 msgstr ""
 
 #: src/ch99-01-03-05-optimizing-storage.md:49
-msgid "//don't forget to import it!\n"
+msgid "// don't forget to import it!\n"
 msgstr ""
 
 #: src/ch99-01-03-05-optimizing-storage.md:58

@@ -37,7 +37,7 @@ impl SizesStorePacking of StorePacking<Sizes, u128> {
 #[starknet::contract]
 mod SizeFactory {
     use super::Sizes;
-    use super::SizesStorePacking; //don't forget to import it!
+    use super::SizesStorePacking; // don't forget to import it!
 
     #[storage]
     struct Storage {
