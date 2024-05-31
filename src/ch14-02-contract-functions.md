@@ -75,7 +75,7 @@ Here, we define a standalone `get_contract_name` function outside of an impl blo
 
 Functions that are not defined with the `#[external(v0)]` attribute or inside a block annotated with the `#[abi(embed_v0)]` attribute are private functions (also called internal functions). They can only be called from within the contract.
 
-They can be grouped in a dedicated impl block (e.g., in components, to easily import internal functions all at once in the embedding contracts) or just be added as free functions inside the contract module.
+They can be grouped in a dedicated impl block (e.g. in components, to easily import internal functions all at once in the embedding contracts) or just be added as free functions inside the contract module.
 Note that these 2 methods are equivalent. Just choose the one that makes your code more readable and easy to use.
 
 ```rust,noplayground
