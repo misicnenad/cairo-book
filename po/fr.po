@@ -10253,7 +10253,7 @@ msgstr ""
 
 #: src/ch99-02-02-contract-dispatcher-library-dispatcher-and-system-calls.md:157
 #: src/ch99-02-02-contract-dispatcher-library-dispatcher-and-system-calls.md:161
-msgid "// starknet::syscalls::library_call_syscall  is called in here\n"
+msgid "// starknet::syscalls::library_call_syscall is called in here\n"
 msgstr ""
 
 #: src/ch99-02-02-contract-dispatcher-library-dispatcher-and-system-calls.md:166

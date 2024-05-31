@@ -32,4 +32,4 @@ Here's a sample interface for an ERC20 token contract. As you can see, it's a ge
 {{#label erc20-interface}}
 <span class="caption">Listing {{#ref erc20-interface}}: A simple ERC20 Interface.</span>
 
-In the next chapter, we will see how we can call contracts from other smart contracts using _dispatchers_ and _syscalls_ .
+In the next chapter, we will see how we can call contracts from other smart contracts using _dispatchers_ and _syscalls_.
