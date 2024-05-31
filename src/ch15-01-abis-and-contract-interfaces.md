@@ -10,7 +10,7 @@ On Starknet, the ABI of a contract is a JSON representation of the contract's fu
 
 While we write our smart contract logics in high-level Cairo, they are stored on the VM as executable bytecodes which are in binary formats. Since this bytecode is not human readable, it requires interpretation to be understood. This is where ABIs come into play, defining specific methods which can be called to a smart contract for execution. Without an ABI, it becomes practically impossible for external actors to understand how to interact with a contract.
 
-ABIs are typically used in dApps frontends, allowing it to format data correctly, making it understandable by the smart contract and vice versa. When you interact with a smart contract through a block explorer like [Voyager](https://voyager.online/) or [Starkscan](https://starkscan.co/), they use the contract's ABI to format the data you send to the contract and the data it returns.
+ABIs are typically used in dApp frontends, allowing it to format data correctly, making it understandable by the smart contract and vice versa. When you interact with a smart contract through a block explorer like [Voyager](https://voyager.online/) or [Starkscan](https://starkscan.co/), they use the contract's ABI to format the data you send to the contract and the data it returns.
 
 ## Interface
 
@@ -23,7 +23,7 @@ One important specification is that this trait must be generic over the `TContra
 
 > Note: The contract constructor is not part of the interface. Nor are internal functions part of the interface.
 
-Here's a sample interface for an ERC20 token contract. As you can see, it's a generic trait over the `TContractState` type. `view` functions have a self parameter of type `@TContractState`, while `external` functions have a self parameter of type passed by reference `ref self: TContractState`.
+Here's a sample interface for an ERC20 token contract. As you can see, it's a generic trait over the `TContractState` type. `view` functions have a `self` parameter of type `@TContractState`, while `external` functions have a `self` parameter of type passed by reference `ref self: TContractState`.
 
 ```rust,noplayground
 {{#include ../listings/ch15-starknet-cross-contract-interactions/listing_01_simple_erc20_interface/src/lib.cairo}}
