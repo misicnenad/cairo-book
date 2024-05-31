@@ -1397,7 +1397,7 @@ msgid ""
 "adding, subtracting, or multiplying, if the result falls outside the "
 "specified range of the prime number, an overflow (or underflow) occurs, and "
 "an appropriate multiple of P is added or subtracted to bring the result back "
-"within the range (i.e., the result is computed modulo P)."
+"within the range (i.e. the result is computed modulo P)."
 msgstr ""
 
 #: src/ch02-02-data-types.md:30
@@ -11772,7 +11772,7 @@ msgid ""
 "The `is_voter_registered` function checks whether a particular address is "
 "registered as an eligible voter in the contract. The `voter_can_vote` "
 "function, on the other hand, checks whether the voter at a specific address "
-"is currently eligible to vote, i.e., they are registered and haven't voted "
+"is currently eligible to vote, i.e. they are registered and haven't voted "
 "already."
 msgstr ""
 
@@ -11818,7 +11818,7 @@ msgstr ""
 
 #: src/ch99-01-04-01-voting-contract.md:360
 msgid ""
-"With an unregistered account address, the terminal output is 0 (i.e., "
+"With an unregistered account address, the terminal output is 0 (i.e. "
 "false), confirming that the account is not eligible to vote."
 msgstr ""
 

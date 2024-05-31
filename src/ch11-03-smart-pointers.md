@@ -72,7 +72,7 @@ The illustration above demonstrates how the memory behaves in both cases. The fi
 
 ## The `Nullable<T>` Type for Dictionaries
 
-`Nullable<T>` is another type of smart pointer that can either point to a value or be `null` in the absence of value. It is defined at the Sierra level. This type is mainly used in dictionaries that contain types that don't implement the `zero_default` method of the `Felt252DictValue<T>` trait (i.e., arrays and structs).
+`Nullable<T>` is another type of smart pointer that can either point to a value or be `null` in the absence of value. It is defined at the Sierra level. This type is mainly used in dictionaries that contain types that don't implement the `zero_default` method of the `Felt252DictValue<T>` trait (i.e. arrays and structs).
 
 If we try to access an element that does not exist in a dictionary, the code will fail if the `zero_default` method cannot be called.
 

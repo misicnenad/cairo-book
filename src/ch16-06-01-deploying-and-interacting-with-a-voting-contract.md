@@ -15,6 +15,7 @@ Listing {{#ref voting_contract}} shows the `Vote` contract in detail:
 ```rust,noplayground
 {{#include ../listings/ch16-building-advanced-starknet-smart-contracts/listing_05_vote_contract/src/lib.cairo}}
 ```
+
 {{#label voting_contract}}
 <span class="caption">Listing {{#ref voting_contract}}: A voting smart contract</span>
 
@@ -155,7 +156,7 @@ If the compiler version you're using is older than the one used by Starkli and y
 
 If you're still encountering issues with the compiler version, try upgrading Starkli using the command: `starkliup` to make sure you're using the latest version of starkli.
 
-The class hash of the contract is: `0x06974677a079b7edfadcd70aa4d12aac0263a4cda379009fca125e0ab1a9ba52`. You can declare this contract on Sepolia testnet and see that the class hash will correspond. 
+The class hash of the contract is: `0x06974677a079b7edfadcd70aa4d12aac0263a4cda379009fca125e0ab1a9ba52`. You can declare this contract on Sepolia testnet and see that the class hash will correspond.
 
 The `--rpc` flag specifies the RPC endpoint to use (the one provided by `katana`). The `--account` flag specifies the account to use for signing the transaction. The account we use here is the one we created in the previous step. The `--keystore` flag specifies the keystore file to use for signing the transaction.
 
@@ -179,7 +180,7 @@ In this case, the contract has been deployed at an specific address: `0x05ea3a69
 
 In our voting contract, we have two functions to validate voter eligibility, `voter_can_vote` and `is_voter_registered`. These are external read functions, which mean they don't alter the state of the contract but only read the current state.
 
-The `is_voter_registered` function checks whether a particular address is registered as an eligible voter in the contract. The `voter_can_vote` function, on the other hand, checks whether the voter at a specific address is currently eligible to vote, i.e., they are registered and haven't voted already.
+The `is_voter_registered` function checks whether a particular address is registered as an eligible voter in the contract. The `voter_can_vote` function, on the other hand, checks whether the voter at a specific address is currently eligible to vote, i.e. they are registered and haven't voted already.
 
 You can call these functions using the `starkli call` command. Note that the `call` command is used for read functions, while the `invoke` command is used for functions that can also write to storage. The `call` command does not require signing, while the `invoke` command does.
 
@@ -197,7 +198,7 @@ Next, let's call the `is_voter_registered` function using an unregistered accoun
 starkli call 0x05ea3a690be71c7fcd83945517f82e8861a97d42fca8ec9a2c46831d11f33349 is_voter_registered 0x44444444444444444 --rpc http://0.0.0.0:5050
 ```
 
-With an unregistered account address, the terminal output is 0 (i.e., false), confirming that the account is not eligible to vote.
+With an unregistered account address, the terminal output is 0 (i.e. false), confirming that the account is not eligible to vote.
 
 ### Casting a Vote
 

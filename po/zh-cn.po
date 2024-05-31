@@ -1711,7 +1711,7 @@ msgid ""
 "In Cairo, if you don't specify the type of a variable or argument, its type defaults to a field element, represented by the keyword `felt252`. In the context of Cairo, when we say “a "
 "field element” we mean an integer in the range `0 <= x < P`,\n"
 "where `P` is a very large prime number currently equal to `P = 2^{251} + 17 * 2^{192}+1`. When adding, subtracting, or multiplying, if the result falls outside the specified range of "
-"the prime number, an overflow occurs, and an appropriate multiple of P is added or subtracted to bring the result back within the range (i.e., the result is computed modulo P)."
+"the prime number, an overflow occurs, and an appropriate multiple of P is added or subtracted to bring the result back within the range (i.e. the result is computed modulo P)."
 msgstr ""
 "在 Cairo 中，如果你没有指定一个变量或参数的类型，它的类型默认为一个字段元素，由关键字 `felt252` 表示。在 Cairo 中，当我们说 \"一个字段元素 \"时，我们指的是范围为 `0 <= x < P` 的整"
 "数、\n"
@@ -21032,7 +21032,7 @@ msgstr "在我们的投票合约中，我们有两个函数来验证投票人的
 #: src/ch99-01-04-01-voting-contract.md:327
 msgid ""
 "The `is_voter_registered` function checks whether a particular address is registered as an eligible voter in the contract. The `voter_can_vote` function, on the other hand, checks "
-"whether the voter at a specific address is currently eligible to vote, i.e., they are registered and haven't voted already."
+"whether the voter at a specific address is currently eligible to vote, i.e. they are registered and haven't voted already."
 msgstr "`is_voter_registered`函数检查特定地址是否在合约中登记为合格投票人。另一方面，`voter_can_vote`函数会检查特定地址的投票人当前是否有资格投票，即他们是否已登记且尚未投票。"
 
 #: src/ch99-01-04-01-voting-contract.md:329
@@ -21080,7 +21080,7 @@ msgstr ""
 "```"
 
 #: src/ch99-01-04-01-voting-contract.md:345
-msgid "With an unregistered account address, the terminal output is 0 (i.e., false), confirming that the account is not eligible to vote."
+msgid "With an unregistered account address, the terminal output is 0 (i.e. false), confirming that the account is not eligible to vote."
 msgstr "对于未注册的账户地址，终端输出为 0（即假），确认该账户没有投票资格。"
 
 #: src/ch99-01-04-01-voting-contract.md:347

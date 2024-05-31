@@ -47,4 +47,4 @@ After defining events, we can emit them using `self.emit`, with the following sy
 {{#include ../listings/ch14-building-starknet-smart-contracts/listing_01_reference_contract/src/lib.cairo:emit_event}}
 ```
 
-The `emit` function is called on `self` and takes a reference to `self`, i.e., state modification capabilities are required. Therefore, it is not possible to emit events in view functions.
+The `emit` function is called on `self` and takes a reference to `self`, i.e. state modification capabilities are required. Therefore, it is not possible to emit events in view functions.

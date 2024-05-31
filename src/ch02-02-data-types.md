@@ -21,7 +21,7 @@ these from other programming languages. Let’s jump into how they work in Cairo
 ### Felt Type
 
 In Cairo, if you don't specify the type of a variable or argument, its type defaults to a field element, represented by the keyword `felt252`. In the context of Cairo, when we say “a field element” we mean an integer in the range \\( 0 \leq x < P \\),
-where \\( P \\) is a very large prime number currently equal to \\( {2^{251}} + 17 \cdot {2^{192}} + 1 \\). When adding, subtracting, or multiplying, if the result falls outside the specified range of the prime number, an overflow (or underflow) occurs, and an appropriate multiple of \\( P \\) is added or subtracted to bring the result back within the range (i.e., the result is computed \\( \mod P \\) ).
+where \\( P \\) is a very large prime number currently equal to \\( {2^{251}} + 17 \cdot {2^{192}} + 1 \\). When adding, subtracting, or multiplying, if the result falls outside the specified range of the prime number, an overflow (or underflow) occurs, and an appropriate multiple of \\( P \\) is added or subtracted to bring the result back within the range (i.e. the result is computed \\( \mod P \\) ).
 
 The most important difference between integers and field elements is division: Division of field elements (and therefore division in Cairo) is unlike regular CPUs division, where
 integer division \\( \frac{x}{y} \\) is defined as \\( \left\lfloor \frac{x}{y} \right\rfloor \\)
