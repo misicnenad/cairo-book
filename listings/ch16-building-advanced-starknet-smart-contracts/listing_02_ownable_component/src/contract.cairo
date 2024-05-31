@@ -19,13 +19,11 @@ mod OwnableCounter {
         ownable: ownable_component::Storage
     }
 
-
     #[event]
     #[derive(Drop, starknet::Event)]
     enum Event {
         OwnableEvent: ownable_component::Event
     }
-
 
     #[abi(embed_v0)]
     fn foo(ref self: ContractState) {

@@ -17,9 +17,9 @@ one, like an ownership component, or more complex like a full-fledged ERC20
 token.
 
 A component is a separate module that can contain storage, events, and
-functions. Unlike a contract, a component cannot be declared or deployed. Its
-logic will eventually be part of the contract’s bytecode it has been embedded
-in.
+functions. Unlike a contract, a component cannot be declared or deployed independently.
+Instead, its logic will eventually become part of the contract’s bytecode in which it
+has been embedded.
 
 ## What's in a Component?
 
@@ -29,14 +29,14 @@ A component is very similar to a contract. It can contain:
 - Events
 - External and internal functions
 
-Unlike a contract, a component cannot be deployed on its own. The component's
-code becomes part of the contract it's embedded to.
+Unlike a contract, a component cannot be deployed on its own. Instead, the component's
+code becomes part of the contract in which it is embedded.
 
 ## Creating Components
 
 To create a component, first define it in its own module decorated with a
-`#[starknet::component]` attribute. Within this module, you can declare a `
-Storage` struct and `Event` enum, as usually done in [contracts][contract anatomy].
+`#[starknet::component]` attribute. Within this module, you can declare a `Storage`
+struct and an `Event` enum, as is usually done in [contracts][contract anatomy].
 
 The next step is to define the component interface, containing the signatures of
 the functions that will allow external access to the component's logic. You can
@@ -46,22 +46,21 @@ interface will be used to enable external access to the component's functions
 using the [dispatcher][contract dispatcher] pattern.
 
 The actual implementation of the component's external logic is done in an `impl`
-block marked as `#[embeddable_as(name)]`. Usually, this `impl` block will be an
-implementation of the trait defining the interface of the component.
+block marked as `#[embeddable_as(name)]`. Typically, this `impl` block will
+implement the trait that defines the interface of the component.
 
 > Note: `name` is the name that we’ll be using in the contract to refer to the
 > component. It is different than the name of your impl.
 
-You can also define internal functions that will not be accessible externally,
+You can also define internal functions that will not be accessible externally
 by simply omitting the `#[embeddable_as(name)]` attribute above the internal
 `impl` block. You will be able to use these internal functions inside the
-contract you embed the component in, but not interact with it from outside, as
-they're not a part of the abi of the contract.
+contract you embed the component in, but you won't be able to interact with them
+from the outside, as they're not part of the contract's ABI.
 
-Functions within these `impl` block expect arguments like `ref self:
-ComponentState<TContractState>` (for state-modifying functions) or `self:
-@ComponentState<TContractState>` (for view functions). This makes the impl
-generic over `TContractState`, allowing us to use this component in any
+Functions within these `impl` blocks expect arguments like `ref self: ComponentState<TContractState>`
+(for state-modifying functions) or `self: @ComponentState<TContractState>` (for view functions).
+This makes the impl generic over `TContractState`, allowing us to use this component in any
 contract.
 
 [contract anatomy]: ./ch13-02-anatomy-of-a-simple-contract.md
@@ -87,8 +86,8 @@ The component itself is defined as:
 ```
 
 This syntax is actually quite similar to the syntax used for contracts. The only
-differences relate to the `#[embeddable_as]` attribute above the impl and the
-genericity of the impl block that we will dissect in details.
+differences relate to the `#[embeddable_as]` attribute above the `impl` block and the
+genericity of the `impl` block, which we will dissect in detail.
 
 As you can see, our component has two `impl` blocks: one corresponding to the
 implementation of the interface trait, and one containing methods that should
@@ -111,7 +110,7 @@ The implementation itself is generic over `ComponentState<TContractState>`, with
 the added restriction that `TContractState` must implement the `HasComponent<T>`
 trait. This allows us to use the component in any contract, as long as the
 contract implements the `HasComponent` trait. Understanding this mechanism in
-details is not required to use components, but if you're curious about the inner
+detail is not required to use components, but if you're curious about the inner
 workings, you can read more in the ["Components Under the Hood"][components inner working] section.
 
 One of the major differences from a regular smart contract is that access to
@@ -120,7 +119,7 @@ and not `ContractState`. Note that while the type is different, accessing
 storage or emitting events is done similarly via `self.storage_var_name.read()`
 or `self.emit(...).`
 
-> Note: To avoid the confusion between the embeddable name and the impl name, we
+> Note: To avoid confusion between the embeddable name and the impl name, we
 > recommend keeping the suffix `Impl` in the impl name.
 
 [components inner working]: ./ch16-02-01-under-the-hood.md
@@ -147,11 +146,11 @@ the example with the `InternalTrait`.
 
 ## Using Components Inside a Contract
 
-The major strength of components is how it allows reusing already built
+The major strength of components is how they allow reusing already built
 primitives inside your contracts with a restricted amount of boilerplate. To
 integrate a component into your contract, you need to:
 
-1. Declare it with the `component!()` macro, specifying
+1. Declare it with the `component!()` macro, specifying:
 
    1. The path to the component `path::to::component`.
    2. The name of the variable in your contract's storage referring to this
@@ -172,10 +171,6 @@ ownable_component::Event`).
    alias. This alias must be annotated with `#[abi(embed_v0)]` to externally
    expose the component's functions.
 
-   As you can see, the InternalImpl is not marked with `#[abi(embed_v0)]`.
-   Indeed, we don't want to expose externally the functions defined in this
-   impl. However, we might still want to access them internally.
-
 For example, to embed the `Ownable` component defined above, we would do the
 following:
 
@@ -183,8 +178,12 @@ following:
 {{#include ../listings/ch16-building-advanced-starknet-smart-contracts/listing_02_ownable_component/src/contract.cairo:all}}
 ```
 
+> Note: As you can see, `InternalImpl` is not marked with `#[abi(embed_v0)]`.
+> Indeed, we don't want to expose the functions defined in this impl externally.
+> However, we might still want to access them internally.
+
 The component's logic is now seamlessly part of the contract! We can interact
-with the components functions externally by calling them using the
+with the component's functions externally by calling them using the
 `IOwnableDispatcher` instantiated with the contract's address.
 
 ```rust
@@ -194,18 +193,16 @@ with the components functions externally by calling them using the
 ## Stacking Components for Maximum Composability
 
 The composability of components really shines when combining multiple of them
-together. Each adds its features onto the contract. You can rely on
-[Openzeppelin's][OpenZeppelin Cairo Contracts] implementation
-of components to quickly plug-in all the common functionalities you need a contract
+together. Each component adds its features to the contract. You can rely on
+[OpenZeppelin's][OpenZeppelin Cairo Contracts] implementation
+of components to quickly plug in all the common functionalities you need a contract
 to have.
 
-Developers can focus on their core contract logic while relying on battle-tested
-and audited components for everything else.
+By relying on battle-tested and audited components, developers can focus on their core contract logic.
 
 Components can even [depend][component dependencies] on other components by restricting the
-`TContractstate` they're generic on to implement the trait of another component.
+`TContractState` they're generic on to implement the trait of another component.
 Before we dive into this mechanism, let's first look at [how components work under the hood][components inner working].
-
 
 [OpenZeppelin Cairo Contracts]: https://github.com/OpenZeppelin/cairo-contracts
 [component dependencies]: ./ch16-02-02-component-dependencies.md
