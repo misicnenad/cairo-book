@@ -3,7 +3,7 @@
 Components provide powerful modularity to Starknet contracts. But how does this
 magic actually happen behind the scenes?
 
-This chapter will dive deep into the compiler internals to explain the
+In this chapter, we'll dive deep into the compiler internals to explain the
 mechanisms that enable component composability.
 
 ## A Primer on Embeddable Impls
@@ -20,7 +20,7 @@ Let's look at an example to see this in action:
 {{#include ../listings/ch16-building-advanced-starknet-smart-contracts/no_listing_01_embeddable/src/lib.cairo}}
 ```
 
-By embedding `SimpleImpl`, we externally expose `ret4` in the contract's ABI.
+By embedding `SimpleImpl`, we externally expose `ret_4` in the contract's ABI.
 
 Now that we’re more familiar with the embedding mechanism, we can now see how
 components build on this.
@@ -95,11 +95,11 @@ TContractState`, where access to the component state is made via the
 {{#include ../listings/ch16-building-advanced-starknet-smart-contracts/no_listing_02_embeddable_as_output/src/lib.cairo}}
 ```
 
-  Note that thanks to having an impl of `HasComponent<TContractState>`, the
-  compiler was able to wrap our functions in a new impl that doesn’t directly
-  know about the `ComponentState` type. `Ownable`, whose name we chose when
-  writing `embeddable_as(Ownable)`, is the impl that we will embed in a contract
-  that wants ownership.
+Note that thanks to having an impl of `HasComponent<TContractState>`, the
+compiler was able to wrap our functions in a new impl that doesn’t directly
+know about the `ComponentState` type. `Ownable`, whose name we chose when
+writing `embeddable_as(Ownable)`, is the impl that we will embed in a contract
+that wants ownership.
 
 ## Contract Integration
 

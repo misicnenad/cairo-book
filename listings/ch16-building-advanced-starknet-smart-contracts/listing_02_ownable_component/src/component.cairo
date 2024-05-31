@@ -11,7 +11,7 @@ mod Errors {
 // ANCHOR: interface
 #[starknet::interface]
 trait IOwnable<TContractState> {
-    //ANCHOR: trait_def
+//ANCHOR: trait_def
     fn owner(self: @TContractState) -> ContractAddress;
     fn transfer_ownership(ref self: TContractState, new_owner: ContractAddress);
     fn renounce_ownership(ref self: TContractState);
