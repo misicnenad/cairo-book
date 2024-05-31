@@ -1,4 +1,5 @@
 use starknet::ContractAddress;
+
 #[starknet::interface]
 trait ITokenWrapper<TContractState> {
     fn transfer_token(
