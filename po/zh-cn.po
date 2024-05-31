@@ -9715,7 +9715,7 @@ msgid ""
 "Earlier, we mentioned that _src/lib.cairo_ is called the crate\n"
 "root. The reason for this name is that the content of this file form a module named after the crate name at the root of the crate’s module structure,\n"
 "known as the _module tree_."
-msgstr "在前面我们提到了，_src/lib.cairo_  叫做 crate 根。之所以这样叫它是因为这个文件的内容在 crate 模块结构的根组成了一个名为 crate 的模块，该结构被称为 模块树（ _module tree_ ）。"
+msgstr "在前面我们提到了，_src/lib.cairo_ 叫做 crate 根。之所以这样叫它是因为这个文件的内容在 crate 模块结构的根组成了一个名为 crate 的模块，该结构被称为 模块树（ _module tree_ ）。"
 
 #: src/ch07-02-defining-modules-to-control-scope.md:170
 msgid "Listing 7-2 shows the module tree for the structure in Listing 7-1."
@@ -10545,7 +10545,7 @@ msgstr ""
 msgid ""
 "To start moving `hosting`, we change _src/front_of_house.cairo_ to contain only the\n"
 "declaration of the `hosting` module:"
-msgstr "为了移动 `hosting`，修改 _src/front_of_house.cairo_  使之仅包含 `hosting` 模块的声明："
+msgstr "为了移动 `hosting`，修改 _src/front_of_house.cairo_ 使之仅包含 `hosting` 模块的声明："
 
 #: src/ch07-05-separating-modules-into-different-files.md:68
 msgid ""
@@ -15699,7 +15699,7 @@ msgstr ""
 
 #: src/ch99-01-03-00-a-deeper-dive-into-contracts.md:119
 msgid "<span class=\"caption\">Listing 99-1bis: Our reference contract for this chapter</span>"
-msgstr "<span class=\"caption\">示例  99-1bis：本章的参考合约</span>"
+msgstr "<span class=\"caption\">示例 99-1bis：本章的参考合约</span>"
 
 #: src/ch99-01-03-01-contract-storage.md:1
 msgid "# Contract Storage"
@@ -19673,7 +19673,7 @@ msgstr "<span class=\"caption\">示例99-4：一个简单的ERC20接口</span>"
 
 #: src/ch99-02-01-abis-and-interfaces.md:57
 msgid "In the next chapter, we will see how we can call contracts from other smart contracts using _dispatchers_ and _syscalls_ ."
-msgstr "在下一章，我们将研究如何使用  合约调度器 (  _dispatchers_  )、和 系统调用( _syscalls_ ) 来调用其他智能合约。"
+msgstr "在下一章，我们将研究如何使用 合约调度器 (  _dispatchers_  )、和 系统调用( _syscalls_ ) 来调用其他智能合约。"
 
 #: src/ch99-02-01-abis-and-interfaces.md:59
 msgid "<footer id=\"last-change\">Last change: 2023-11-15</footer>"

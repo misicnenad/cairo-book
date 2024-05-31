@@ -90,7 +90,7 @@ fn main() {
 answer.doesCompile = false
 answer.lineNumber = 23
 context = """
-These definitions of `f` conflict, and there is no way for  to determine which `f` should be used when `p.f()` is called. Therefore this is a compiler error.
+These definitions of `f` conflict, and there is no way for to determine which `f` should be used when `p.f()` is called. Therefore this is a compiler error.
 Moreover, the generic implementation would require `T` to be droppable, as `self.y` is dropped when the function returns.
 """
 

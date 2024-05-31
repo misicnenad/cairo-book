@@ -18,7 +18,7 @@ scope of the `eat_at_restaurant` function so we only have to specify
 
 Adding `use` and a path in a scope is similar to creating a symbolic link in the filesystem. By adding `use restaurant::front_of_house::hosting;` in the crate root, `hosting` is now a valid name in that scope, just as though the `hosting` module had been defined in the crate root.
 
-Note that `use` only creates the shortcut for the particular scope in which the `use` occurs. Listing {{#ref  use-scope}} moves the `eat_at_restaurant` function into a new child module named `customer`, which is then a different scope than the `use`
+Note that `use` only creates the shortcut for the particular scope in which the `use` occurs. Listing {{#ref use-scope}} moves the `eat_at_restaurant` function into a new child module named `customer`, which is then a different scope than the `use`
 statement, so the function body won’t compile:
 
 <span class="filename">Filename: src/lib.cairo</span>
@@ -28,7 +28,7 @@ statement, so the function body won’t compile:
 ```
 
 {{#label use-scope}}
-<span class="caption">Listing {{#ref  use-scope}}: A `use` statement only applies in the scope it’s in.</span>
+<span class="caption">Listing {{#ref use-scope}}: A `use` statement only applies in the scope it’s in.</span>
 
 The compiler error shows that the shortcut no longer applies within the `customer` module:
 
